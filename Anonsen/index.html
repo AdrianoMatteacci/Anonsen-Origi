@@ -520,11 +520,28 @@
                             Veröffentlichen
                         </button>
                     </div>
-                </div>
+                                </div>
             </div>
         </div>
     </div>
     
     <script src="script.js"></script>
+    <script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js"
+
+  // Deine Supabase-Zugangsdaten
+  const supabaseUrl = https://tthorocqriuhisalvvaz.supabase.co
+  const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0aG9yb2Nxcml1aGlzYWx2dmF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY0MDE5ODUsImV4cCI6MjA3MTk3Nzk4NX0.Ad30Zk9BGrcitT31q45RVODBtBvWl9ak2PI-LAxOY6w
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  // Beispiel: Alle Daten aus einer Tabelle "messages" holen
+  async function ladeDaten() {
+    let { data, error } = await supabase.from("messages").select("*")
+    console.log("DATA:", data, "ERROR:", error)
+  }
+
+  ladeDaten()
+</script>
+
 </body>
 </html>
